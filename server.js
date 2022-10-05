@@ -14,19 +14,19 @@ const server = http.createServer((req, res) => {
       console.log('🚀 ~ file: server.js ~ line 14 ~ server ~ arr', arr);
       const type = arr[arr.length - 1].split('.')[1];
       console.log('🚀 ~ file: server.js ~ line 15 ~ server ~ type', type);
-      if (type === 'jpg') {
-        const image = fs.readFileSync(assets + 'images/' + arr[arr.length - 1]);
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'image/png');
-        res.end(image);
-      }
-      // if (type === '/') {
-      //   console.log(' css ', arr[arr.length - 1]);
-      //   const css = fs.readFileSync(assets + 'css/' + arr[arr.length - 1]);
+      // if (type === 'jpg') {
+      //   const image = fs.readFileSync(assets + 'images/' + arr[arr.length - 1]);
       //   res.statusCode = 200;
-      //   res.setHeader('Content-Type', 'text/css');
-      //   res.end(css);
+      //   res.setHeader('Content-Type', 'image/png');
+      //   res.end(image);
       // }
+      if (type === 'css') {
+        console.log(' css ', arr[arr.length - 1]);
+        const css = fs.readFileSync(assets + 'css/' + arr[arr.length - 1]);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/css');
+        res.end(css);
+      }
     }
   }
 
